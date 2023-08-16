@@ -31,33 +31,39 @@ int main()
 			tk_c++;
 			token = strtok(NULL, "/");
 		} //hasta aqui tengo array tokensi
-		int size1 = sizeof(tokens) / sizeof(tokens[0]);
-		char *array2[size1 - 1];
-		for (int i = 1; i < size1; i++)
+		//printf("Tokens:\n");
+		//for (int i = 0; i < tk_c; i++) 
+		//{
+		//	printf("%s\n", tokens[i]);
+		//}
+
+		char *array2[tk_c - 1];
+		for (int i = 1; i < tk_c; i++)
 		{
 			array2[i - 1] = tokens[i];
 		}
 
-		{
-			child_pid = fork();// creo hijo
+		
+		child_pid = fork();// creo hijo
 
-			if (child_pid == -1)
-			{
-				perror("Error:");
-				return (1);
-			}
-			else if (child_pid == 0)
-			{
-				//char *args[] = {"tokens[1]", NULL};
-				execve(line, array2, NULL);
-				perror("Execve failed");
-				return (1);
-			}
-			else
-			{
-				wait(&status);
-			}
+		if (child_pid == -1)
+		{
+			perror("Error:");
+			return (1);
 		}
+		else if (child_pid == 0)
+		{
+			//char *args[] = {"ls", NULL};
+			execve(tokens[0], array2, NULL);
+			perror("Execve failed");
+			return (1);
+		}
+		else
+		{
+			wait(&status);
+		
+		}
+		
 	}
 		
 	else
