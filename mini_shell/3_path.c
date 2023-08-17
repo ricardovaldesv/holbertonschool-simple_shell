@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
 {
 	char *path;
 	char *token;
-	int cont = 0;
 
 	if (argc < 2)
 	{
@@ -23,7 +22,6 @@ int main(int argc, char *argv[])
 
 	while (token != NULL) 
 	{
-		cont++;
 		printf("%s\n", token);
 		token = strtok(NULL, ":");
 	}
