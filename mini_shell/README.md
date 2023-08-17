@@ -43,6 +43,11 @@
 > The stat (man 2 stat) system call gets the status of a file. On success, zero is returned. On error, -1 is returned.
 - file : stat.c executable: stat
 
+## Exercise: find a file in the PATH
+
+> program that looks for files in the current PATH.
+- file path.c execiutable: path
+
 ## Environment - MAIN 
 
 > prints the environment using the global variable
@@ -51,16 +56,24 @@
 # Exercises
 
 ## 0. printenv with environ
+
 > Program that prints the environment using the global variable **environ.**
 - File : 0_printenv.c, Executable : 0_printenv
 ## 1. env vs environ
+
 >program that prints the address of env (the third parameter of the main function) and environ (the global variable).
 - File: 1_env_vs_environ.c, Executable : 1_env_vs_environ
 ## 2. getenv()
+
 > Function that gets an environment variable. (without using getenv)
 
 - Prototype: char *_getenv(const char *name);
 - File : 2_getenv.c Executable : 2_getenv
 ## 3. PATH
 
+> Function that prints each directory contained in the the environment variable PATH, one directory per line.
+- file : 3_path.c executable : 3_pathi
 
+## 4. PATH
+
+> function that builds a linked list of the PATH directories.
