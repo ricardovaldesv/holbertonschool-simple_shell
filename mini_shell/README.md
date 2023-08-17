@@ -1,10 +1,10 @@
-MINI SHELL
+#MINI SHELL
 
-0. getppid : 
-		program that prints the PID of the parent process. 
-		File pid.c executable : mypid
+##0. getppid : 
+		- program that prints the **PID** of the parent process. 
+		- File pid.c executable : mypid
 
-1. /proc/sys/kernel/pid_max:
+##1. /proc/sys/kernel/pid_max:
 				shell script that prints the maximum value a process ID can be.
 				File : 1_max_pid.sh
 
