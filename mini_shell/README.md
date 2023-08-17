@@ -30,9 +30,15 @@
 
 ## Wait
 > The wait system call (man 2 wait) suspends execution of the calling process until one of its children terminates.
-- file: wait.c and wait, executable : fork and fork2
+- file: wait.c, executable : wait
 
 ## Exercise: fork + wait + execve
 > program that executes the command ls -l /tmp in 5 different child processes. Each child should be created by the same process (the father). Wait for a child to exit before creating a new child.
 - file: 5_different_child_process.c, executable : 5_different_child_process
 
+## Exercise: super simple shell
+> first version of a super simple shell that can run commands with their full path, without any argument.
+- file : shell.c executable: shell
+## File information
+> The stat (man 2 stat) system call gets the status of a file. On success, zero is returned. On error, -1 is returned.
+- file : stat.c executable: stat
