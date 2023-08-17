@@ -56,4 +56,11 @@
 ## 1. env vs environ
 >program that prints the address of env (the third parameter of the main function) and environ (the global variable).
 - File: 1_env_vs_environ.c, Executable : 1_env_vs_environ
+## 2. getenv()
+> Function that gets an environment variable. (without using getenv)
+
+- Prototype: char *_getenv(const char *name);
+- File : 2_getenv.c Executable : 2_getenv
+## 3. PATH
+
 
