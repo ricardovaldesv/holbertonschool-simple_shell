@@ -42,3 +42,13 @@
 ## File information
 > The stat (man 2 stat) system call gets the status of a file. On success, zero is returned. On error, -1 is returned.
 - file : stat.c executable: stat
+
+## Environment - MAIN 
+
+> prints the environment using the global variable
+- file: env-main.c, executable : printenv
+
+# Exercises
+
+## 0. printenv with environ
+> Program that prints the environment using the global variable **environ.**
