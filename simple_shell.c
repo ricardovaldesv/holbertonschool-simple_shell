@@ -33,13 +33,15 @@ int main()
             if (child_pid == -1)
             {
                 perror("Error:");
+		free(line);
                 return (1);
             }
             else if (child_pid == 0)
             {
                 execve(array2[0], array2, NULL);
-                perror("Execve failed");
-                return (1);
+                perror("./shell");
+		free(line);
+                exit (1);
             }
             else
             {
@@ -48,11 +50,11 @@ int main()
         }
         else
         {
+		free(line);
             return (0);
         }
 
-        free(line);
     }
-
+    free(line);
     return 0;
 }
