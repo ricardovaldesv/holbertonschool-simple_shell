@@ -48,8 +48,7 @@ int main()
         }
         else
         {
-            printf("Error reading the line.\n");
-            return (1);
+            return (0);
         }
 
         free(line);
