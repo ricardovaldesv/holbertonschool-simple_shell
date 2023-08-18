@@ -77,3 +77,17 @@
 ## 4. PATH
 
 > function that builds a linked list of the PATH directories.
+- File: 4_Path_linked_list.c ,  Executable : 4_Path_linked_list
+
+## 5. setenv
+> Function that changes or adds an environment variable (without using setenv).
+
+- Prototype: int _setenv(const char *name, const char *value, int overwrite);
+- File : 5_setenv.c Executable : 5_setenv
+
+## 6. unsetenv
+> Function that deletes the variable name from the environment (without using unsetenv).
+
+- Prototype: int _unsetenv(const char *name);
+- File : 6_unsetenv.c Executable : 6_unsetenv
+
