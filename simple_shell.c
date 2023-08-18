@@ -15,14 +15,18 @@ int main()
 
     while (1)
     {
-        printf("cisfun$ ");
+       char *array2[2];
+       
+       printf("cisfun$ ");
         read = getline(&line, &len, stdin);
 
         if (read != -1)
         {
             line[strcspn(line, "\n")] = '\0';
 
-            char *array2[] = {line, NULL};
+	    array2[0] = line;
+	    array2[1] = NULL;
+	
 
             child_pid = fork();
 
