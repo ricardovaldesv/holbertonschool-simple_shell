@@ -15,9 +15,12 @@ int main()
 
     while (1)
     {
-       char *array2[2];
+	 char *array2[2];
+	    if (isatty(fileno(stdin)))
+                {
+                        printf("#cisfun$ ");
+                }
        
-       printf("cisfun$ ");
         read = getline(&line, &len, stdin);
 
         if (read != -1)
@@ -33,14 +36,12 @@ int main()
             if (child_pid == -1)
             {
                 perror("Error:");
-		free(line);
                 return (1);
             }
             else if (child_pid == 0)
             {
                 execve(array2[0], array2, NULL);
                 perror("./shell");
-		free(line);
                 exit (1);
             }
             else
@@ -50,11 +51,10 @@ int main()
         }
         else
         {
-		free(line);
             return (0);
         }
+	free (line);
 
     }
-    free(line);
     return 0;
 }
