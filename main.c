@@ -25,10 +25,18 @@ int main()
 		if (read == -1) 
 		{
 			free(input);
-			break;
+			exit(0);
 		}
 
 		input[strcspn(input, "\n")] = '\0';
+
+		for(i = 0; input[i] != '\0'; i++)
+		{
+			if(input[i] != ' ')
+				break;
+		}
+		if (input[i] == '\0')
+			continue;
 
 		if (strcmp(input, "exit") == 0)
 		{
