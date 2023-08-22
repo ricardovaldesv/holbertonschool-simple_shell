@@ -41,7 +41,7 @@ int main()
 
 		if (strcmp(input, "exit") == 0)
 		{
-			break;
+			exit(2);
 		}
 		else if (strcspn(input, "env") == 0)
 		{
