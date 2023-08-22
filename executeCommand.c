@@ -36,6 +36,7 @@ void executeCommand(const char *command)
 	if (child_pid == -1)
 	{
 		perror("Error when creating a child process");
+		free(copyCommand);
 		exit(EXIT_FAILURE);
 	}
 	else if (child_pid == 0)
