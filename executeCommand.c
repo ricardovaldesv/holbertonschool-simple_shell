@@ -16,7 +16,6 @@ void executeCommand(const char *command)
 
 	if (copyCommand == NULL)
 	{
-		free(copyCommand);
 		return;
 	}
 
@@ -44,7 +43,6 @@ void executeCommand(const char *command)
 	{
 		execve(copyCommand, args, NULL);
 		perror("Error executing command");
-		free(copyCommand);
 		exit(EXIT_FAILURE);
 	}
 	else
