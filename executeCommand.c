@@ -5,27 +5,18 @@
  *                  command on a Unix or Linux system.
  * @command: string of input
  */
-void executeCommand(const char *command)
+void executeCommand(char *command)
 {
 	const char *delimiter = " ";
-	char *copyCommand = strtok(strdup(command), delimiter);
+	char *token;
 	pid_t child_pid;
-	int argIndex = 1;
+	int argIndex = 0;
 	char *args[20];
-	args[0] = copyCommand;
+	args[0] = NULL;
 
-	if (copyCommand == NULL)
+	for (token = strtok(command, delimiter); token != NULL; token = strtok(NULL, delimiter))
 	{
-		return;
-	}
-
-	while (argIndex < (20 - 1))
-	{
-		args[argIndex] = strtok(NULL, delimiter);
-		if (args[argIndex] == NULL)
-		{
-			break;
-		}
+		args[argIndex] = token;
 		argIndex++;
 	}
 
@@ -36,12 +27,12 @@ void executeCommand(const char *command)
 	if (child_pid == -1)
 	{
 		perror("Error when creating a child process");
-		free(copyCommand);
+		free(command);
 		exit(EXIT_FAILURE);
 	}
 	else if (child_pid == 0)
 	{
-		execve(copyCommand, args, NULL);
+		execve(args[0], args, NULL);
 		perror("./shell");
 		exit(EXIT_FAILURE);
 	}

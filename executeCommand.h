@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-void executeCommand(const char *command);
+void executeCommand(char *command);
 void printEnvironment();
 
 #endif
