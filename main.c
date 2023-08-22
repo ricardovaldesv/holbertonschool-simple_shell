@@ -52,6 +52,6 @@ int main()
 			executeCommand(input);
 		}
 	}
-
+	free(input);
 	return (0);
 }
