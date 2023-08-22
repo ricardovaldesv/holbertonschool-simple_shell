@@ -51,6 +51,7 @@ void executeCommand(const char *command)
 	{
 		int status;
 		wait(&status);
+		free(copyCommand);
 	}
 
 }

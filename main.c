@@ -24,6 +24,7 @@ int main()
 
 		if (read == -1) 
 		{
+			free(input);
 			break;
 		}
 
