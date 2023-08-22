@@ -12,6 +12,7 @@ int main()
 	ssize_t read;
 	char *input = NULL;
 	size_t len = 0;
+	int i;
 
 	while (1)
 	{
