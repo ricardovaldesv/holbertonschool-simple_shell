@@ -42,7 +42,7 @@ void executeCommand(const char *command)
 	else if (child_pid == 0)
 	{
 		execve(copyCommand, args, NULL);
-		perror("Error executing command");
+		perror("./shell");
 		exit(EXIT_FAILURE);
 	}
 	else
