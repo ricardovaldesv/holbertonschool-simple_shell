@@ -41,15 +41,7 @@ int main()
 
 		if (strcmp(input, "exit") == 0)
 		{
-			free(input);
-			if (strcmp(input, "exit") == 0)
-			{
-				exit(0);
-			}
-			else
-			{
-				exit(2);
-			}
+			break;
 		}
 		else if (strcspn(input, "env") == 0)
 		{
