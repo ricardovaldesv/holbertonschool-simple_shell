@@ -1,60 +1,70 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <string.h>
+
+/**
+ * main - main function.
+ *
+ * Return: Always 0.
+ */
 
 int main()
 {
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t read;
-    pid_t child_pid;
-    int status;
+	char *line = NULL;
+	size_t line_len = 0;
+	char *args[10];
+	int status;
+	ssize_t line_read;
+	pid_t child_pid;
 
-    while (1)
-    {
-	 char *array2[2];
-	    if (isatty(fileno(stdin)))
-                {
-                        printf("#cisfun$ ");
-                }
-       
-        read = getline(&line, &len, stdin);
+	while (1)
+	{
+		if (isatty(fileno(stdin)))
+		{
+			printf("#cisfun$ ");
+		}
 
-        if (read != -1)
-        {
-            line[strcspn(line, "\n")] = '\0';
-
-	    array2[0] = line;
-	    array2[1] = NULL;
-	
-
-            child_pid = fork();
-
-            if (child_pid == -1)
-            {
-                perror("Error:");
-                return (1);
-            }
-            else if (child_pid == 0)
-            {
-                execve(array2[0], array2, NULL);
-                perror("./shell");
-                exit (1);
-            }
-            else
-            {
-                wait(&status);
-            }
-        }
-        else
-        {
-            return (0);
-        }
-	free (line);
-
-    }
-    return 0;
+		line_read = getline(&line, &line_len, stdin);
+		if (line_read == -1)
+		{
+			free(line);
+			exit(0);
+		}
+		/* Elimina el salto de línea final */
+		if (line_read > 0 && line[line_read - 1] == '\n')
+		{
+			line[line_read - 1] = '\0';
+		}
+		child_pid = fork();
+		if (child_pid == -1)
+		{
+			perror("Fork failed");
+			exit(1);
+		}
+		else if (child_pid == 0)
+		{
+			/* Código del proceso hijo */
+			/* Analiza la línea de comandos en argumentos */
+			int i = 0;
+			args[i] = strtok(line, " ");
+			while (args[i] != NULL)
+			{
+				i++;
+				args[i] = strtok(NULL, " ");
+			}
+			args[i] = NULL; /* Termina la lista de argumentos */
+			/* Ejecuta el comando */
+			execve(args[0], args, NULL);
+			perror("./shell");
+			exit(1);
+		}
+		else
+		{
+			wait(&status);
+		}
+	}
+	return (0);
 }
