@@ -5,7 +5,7 @@
  *                  command on a Unix or Linux system.
  * @command: string of input
  */
-void executeCommand(char *command)
+int executeCommand(char *command)
 {
 	const char *delimiter = " ";
 	char *token;
@@ -43,7 +43,7 @@ void executeCommand(char *command)
 			else
 			{
 				fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-				exit(status);
+				exit(127);
 			}
 		}
 		execve(args[0], args, environ);
@@ -53,8 +53,13 @@ void executeCommand(char *command)
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status))
+		{
+			int exit_status = WEXITSTATUS(status); 
+			return (exit_status);
+		}
 	}
-
+	return (0);
 }
 
 /**
