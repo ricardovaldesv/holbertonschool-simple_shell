@@ -5,25 +5,40 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-int main(int argc, char *argv[]) 
-
+int main(int argc, char *argv[])
 {
-	char *path;
-	char *token;
-
-	if (argc < 2)
+	if (argc < 2) 
 	{
 		printf("Usage: %s filename ...\n", argv[0]);
-		return (1);
+		return 1;
 	}
 
-	path = getenv(argv[1]);
-	token = strtok(path, ":");
-
-	while (token != NULL) 
+	for (int i = 1; i < argc; i++)
 	{
-		printf("%s\n", token);
-		token = strtok(NULL, ":");
+		char *path = getenv("PATH");
+		char *token = strtok(path, ":");
+		int found = 0;
+		struct stat st;
+
+		while (token != NULL) 
+		{
+			char filepath[256];
+			snprintf(filepath, sizeof(filepath), "%s/%s", token, argv[i]);
+
+			if (stat(filepath, &st) == 0) 
+			{
+				printf("%s\n", filepath);
+				found = 1;
+				break;
+			}
+
+			token = strtok(NULL, ":");
+		}
+		if (!found) 
+		{
+			printf("%s not found\n", argv[i]);
+		}
 	}
 	return (0);
 }
+

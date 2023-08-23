@@ -22,21 +22,6 @@ void executeCommand(char *command)
 
 	args[argIndex] = NULL;
 
-	/*if (args[0] && !strchr(args[0], '/'))
-	{
-		char fullPath[20];
-		if (findExecutable(args[0], fullPath)) 
-		{
-			args[0] = fullPath;
-		}
-		else
-		{
-			perror("Command not found");
-			free(command);
-			exit(EXIT_FAILURE);
-		}
-	}*/
-
 	child_pid = fork();
 
 	if (child_pid == -1)
@@ -47,14 +32,6 @@ void executeCommand(char *command)
 	}
 	else if (child_pid == 0)
 	{
-		if (args[0] && !strchr(args[0], '/'))
-		{
-			char fullPath[20];
-			if (findExecutable(args[0], fullPath))
-			{
-				args[0] = fullPath;
-			}
-		}
 		execve(args[0], args, NULL);
 		perror("./shell");
 		exit(EXIT_FAILURE);
