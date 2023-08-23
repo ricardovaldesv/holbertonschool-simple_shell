@@ -9,7 +9,7 @@
 
 extern char **environ;
 
-int executeCommand(char *command);
+void executeCommand(char *command);
 void printEnvironment();
 bool findExecutable(char *command, char *fullPath);
 

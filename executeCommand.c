@@ -5,7 +5,7 @@
  *                  command on a Unix or Linux system.
  * @command: string of input
  */
-int executeCommand(char *command)
+void executeCommand(char *command)
 {
 	const char *delimiter = " ";
 	char *token;
@@ -40,30 +40,15 @@ int executeCommand(char *command)
 			{
 				args[0] = fullPath;
 			}
-			else
-			{
-				fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-				exit(127);
-			}
 		}
 		execve(args[0], args, environ);
 		perror("./shell");
-		exit(126);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
 		wait(&status);
-		if (WIFEXITED(status))
-		{
-			int exit_status = WEXITSTATUS(status);
-			if (exit_status == 126)
-			{
-				return (127);
-			}
-			return (exit_status);
-		}
 	}
-	return (0);
 }
 
 /**
