@@ -56,7 +56,6 @@ void executeCommand(char *command)
  */
 void printEnvironment()
 {
-    extern char **environ;
     char **env = environ;
 
     while (*env != NULL)

@@ -44,7 +44,7 @@ int main()
 			free(input);
 			exit(0);
 		}
-		else if (strcspn(input, "env") == 0)
+		else if (strcmp(input, "env") == 0)
 		{
 			printEnvironment();
 		}
