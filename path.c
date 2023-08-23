@@ -1,4 +1,4 @@
-#include "executeCommand.h"
+#include "main.h"
 #include <stdbool.h>
 
 bool findExecutable(char *command, char *fullPath)

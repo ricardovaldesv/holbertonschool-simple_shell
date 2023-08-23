@@ -1,4 +1,4 @@
-#include "executeCommand.h"
+#include "main.h"
 
 /**
  * executeCommand - It is responsible for executing a
@@ -49,18 +49,4 @@ void executeCommand(char *command)
 	{
 		wait(&status);
 	}
-}
-
-/**
- * printEnvironment - Prints the system environment variables.
- */
-void printEnvironment()
-{
-    char **env = environ;
-
-    while (*env != NULL)
-    {
-        printf("%s\n", *env);
-        env++;
-    }
 }
