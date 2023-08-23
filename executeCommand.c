@@ -48,14 +48,18 @@ int executeCommand(char *command)
 		}
 		execve(args[0], args, environ);
 		perror("./shell");
-		exit(EXIT_FAILURE);
+		exit(126);
 	}
 	else
 	{
 		wait(&status);
 		if (WIFEXITED(status))
 		{
-			int exit_status = WEXITSTATUS(status); 
+			int exit_status = WEXITSTATUS(status);
+			if (exit_status == 126)
+			{
+				return (127);
+			}
 			return (exit_status);
 		}
 	}
