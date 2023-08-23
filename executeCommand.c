@@ -39,6 +39,11 @@ void executeCommand(char *command)
 			{
 				args[0] = fullPath;
 			}
+			else
+			{
+				fprintf(stderr, "./hsh: %s: command not found\n", args[0]);
+				exit(127);
+			}
 		}
 		execve(args[0], args, environ);
 		perror("./shell");
