@@ -12,6 +12,7 @@ void executeCommand(char *command)
 	pid_t child_pid;
 	int argIndex = 0;
 	char *args[20];
+	int status;
 	args[0] = NULL;
 
 	for (token = strtok(command, delimiter); token != NULL; token = strtok(NULL, delimiter))
@@ -42,7 +43,7 @@ void executeCommand(char *command)
 			else
 			{
 				fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-				exit(127);
+				exit(status);
 			}
 		}
 		execve(args[0], args, environ);
@@ -51,7 +52,6 @@ void executeCommand(char *command)
 	}
 	else
 	{
-		int status;
 		wait(&status);
 	}
 
