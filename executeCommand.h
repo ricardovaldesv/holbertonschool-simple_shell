@@ -7,8 +7,11 @@
 #include <sys/wait.h>
 #include <stdbool.h>
 
+extern char **environ;
+
 void executeCommand(char *command);
 void printEnvironment();
 bool findExecutable(char *command, char *fullPath);
+
 
 #endif
