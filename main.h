@@ -1,5 +1,5 @@
 #ifndef MAIN_H
-#define MAIN_Hi
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@
 extern char **environ;
 
 void executeCommand(char *command);
-void printEnvironment();
+void printEnvironment(void);
 bool findExecutable(char *command, char *fullPath);
 
 

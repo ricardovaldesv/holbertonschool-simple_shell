@@ -3,13 +3,14 @@
 /**
  * printEnvironment - Prints the system environment variables.
  */
-void printEnvironment()
-{
-    char **env = environ;
 
-    while (*env != NULL)
-    {
-        printf("%s\n", *env);
-        env++;
-    }
+void printEnvironment(void)
+{
+	char **env = environ;
+
+	while (*env != NULL)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
 }

@@ -5,6 +5,7 @@
  *                  command on a Unix or Linux system.
  * @command: string of input
  */
+
 void executeCommand(char *command)
 {
 	const char *delimiter = " ";
@@ -13,16 +14,15 @@ void executeCommand(char *command)
 	int argIndex = 0;
 	char *args[20];
 	int status;
-	args[0] = NULL;
 
-	for (token = strtok(command, delimiter); token != NULL; token = strtok(NULL, delimiter))
+	args[0] = NULL;
+	for (token = strtok(command, delimiter); token != NULL;
+			token = strtok(NULL, delimiter))
 	{
 		args[argIndex] = token;
 		argIndex++;
 	}
-
 	args[argIndex] = NULL;
-
 	child_pid = fork();
 
 	if (child_pid == -1)
@@ -36,10 +36,9 @@ void executeCommand(char *command)
 		if (args[0] && !strchr(args[0], '/'))
 		{
 			char fullPath[20];
+
 			if (findExecutable(args[0], fullPath))
-			{
 				args[0] = fullPath;
-			}
 		}
 		execve(args[0], args, environ);
 		perror("./shell");
