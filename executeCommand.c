@@ -8,23 +8,22 @@
 
 void executeCommand(char *command)
 {
-	const char *delimiter = " ";
 	char *token;
 	pid_t child_pid;
 	int argIndex = 0;
 	char *args[20];
 	int status;
+	char fullPath[20];
 
 	args[0] = NULL;
-	for (token = strtok(command, delimiter); token != NULL;
-			token = strtok(NULL, delimiter))
+	for (token = strtok(command, " "); token != NULL;
+			token = strtok(NULL, " "))
 	{
 		args[argIndex] = token;
 		argIndex++;
 	}
 	args[argIndex] = NULL;
 	child_pid = fork();
-
 	if (child_pid == -1)
 	{
 		perror("Error when creating a child process");
@@ -35,8 +34,6 @@ void executeCommand(char *command)
 	{
 		if (args[0] && !strchr(args[0], '/'))
 		{
-			char fullPath[20];
-
 			if (findExecutable(args[0], fullPath))
 				args[0] = fullPath;
 		}
