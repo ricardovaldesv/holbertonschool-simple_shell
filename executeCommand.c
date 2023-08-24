@@ -40,9 +40,11 @@ void executeCommand(char *command)
 			if (findExecutable(args[0], fullPath))
 				args[0] = fullPath;
 		}
-		execve(args[0], args, environ);
-		perror("./shell");
-		exit(EXIT_FAILURE);
+		if (execve(args[0], args, environ) == -1)
+		{
+			perror("./shell");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
