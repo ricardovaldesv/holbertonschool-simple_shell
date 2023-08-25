@@ -1,5 +1,9 @@
 # Custom Shell
 Is a simple Unix/Linux shell implementation that allows users to execute commands and interact with the system. This shell is developed in C and provides a basic command-line interface for users to input commands and receive responses from the program.
+# General Shell Structure
+
+<span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>https://raw.githubusercontent.com/ricardovaldesv/holbertonschool-simple_shell/blob/master/images/Simple%20Shell%20(1).png</span><span>)</span>
+
 # Features
 Interactive Command Execution: Users can enter commands in the shell and receive responses from the program.
 Command Execution: The shell can execute various system commands entered by the user.
