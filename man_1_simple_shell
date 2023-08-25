@@ -1,0 +1,73 @@
+.TH _SIMPLE SHELL "25 august 2023" "1.0" "simple shell page"
+
+.SH NAME
+hsh Simple Shell \-  command language interpreter
+# SYNOPSIS.B Interactive mode
+.TP
+.B ./hsh
+.TP
+$ <command> <flag1> <flag2> …
+.TP
+$ ls
+.TP
+$ ls -lan
+.TP
+$ mkdir hello
+.TP
+.B Non-interactive mode
+.TP
+Command | ./hsh
+.TP
+echo “/bin/ls” | ./hsh
+.TP
+echo “ls -l” | ./hsh
+.SH DESCRIPTION
+`hsh` is a simple custom shell implementation that allows users to execute commands and interact with the system. It provides a basic command-line interface for users to input commands and receive responses from the program.
+.SH COMMANDS
+.B exit:
+- Exits the shell.
+.B env:
+- Displays the system environment variables.
+.B Clear
+- Clean the terminal screen
+.SH Commands
+.B Absolute path
+.TP
+This shell executes commands given in the form of an absolute path:
+.TP
+.B Input
+.TP
+$ /bin/ls -l
+.TP
+.B Output
+.TP
+total 52
+-rw-r--r-- 1 root root   884 Aug 23 22:23 executeCommand.c
+-rwxr-xr-x 1 root root 17808 Aug 23 22:23 hsh
+drwxr-xr-x 2 root root    40 Aug 25 06:46 images
+-rw-r--r-- 1 root root   774 Aug 23 19:37 main.c
+-rw-r--r-- 1 root root   304 Aug 23 17:24 main.h
+-rw-r--r-- 1 root root  1565 Aug 25 07:29 man_1_simple_shell
+drwxr-xr-x 2 root root  4096 Aug 22 16:20 mini_shell
+-rw-r--r-- 1 root root   467 Aug 23 17:22 path.c
+-rw-r--r-- 1 root root   208 Aug 23 17:11 printEnv.c
+-rw-r--r-- 1 root root  2405 Aug 25 06:51 README.md
+.SH USAGE
+To compile and run the custom shell on your system, follow these steps:
+1. Clone the repository:
+git clone https://github.com/FoulTrip/holbertonschool-simple_shell.git
+cd holbertonschool-simple_shell
+2. Compile the source code using GCC:
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+3. Run the shell:
+./hsh
+Once the shell is running, you can interact with it using the command-line interface. Here are some commands you can try:
+- Entering commands: Type in various commands and press Enter to execute them.
+- Exiting the shell: Use the "exit" command to exit the shell.
+- Displaying environment variables: Use the "env" command to print the system environment variables.I
+.SH AUTHORS
+Ricardo Augusto Valdes Vidal 
+.PP
+David Vasquez Mahecha
+.SH COPYRIGHT
+[Copyright 2023], [Ricardo Valdes - David Vasquez]
