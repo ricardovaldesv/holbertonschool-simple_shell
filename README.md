@@ -5,7 +5,7 @@ Is a simple Unix/Linux shell implementation that allows users to execute command
 ![flowchart](https://github.com/ricardovaldesv/holbertonschool-simple_shell/blob/master/images/shell.png)
 
 ## Features
--> The following simple-shell functions can be performed:
+> The following simple-shell functions can be performed:
 
 - Interactive and no-interactive Command Execution: Users can enter commands in the shell and receive responses from the program.
 - Input of commands in the form of absolute path, interpretation and execution
@@ -37,8 +37,8 @@ $ echo "/bin/ls" | ./hsh
 ## interactive
 
 > The program is execute and the prompt is print, and wait for the user.
-$ ./hsh 
-$(#cisfun$)
+- $ ./hsh 
+- #cisfun$
 
 ## Usage
 Once the shell is running, you can interact with it using the command-line interface. Here are some commands you can try:
